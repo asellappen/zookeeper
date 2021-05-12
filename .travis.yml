@@ -27,12 +27,16 @@ addons:
     packages:
     - libcppunit-dev
     - npm
-    - javadoc
 
 install:
   - if [ "${TRAVIS_CPU_ARCH}" == "arm64" ]; then
      sudo apt-get install maven;
     fi
+  - if [ "${TRAVIS_CPU_ARCH}" == "ppc64le" ]; then
+     sudo apt-get install npm ;
+     sudo  npm install -s javadoc;
+    fi
+   
 
 script: mvn clean apache-rat:check verify -DskipTests spotbugs:check checkstyle:check -Pfull-build
 
