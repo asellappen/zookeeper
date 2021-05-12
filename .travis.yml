@@ -26,6 +26,8 @@ addons:
   apt:
     packages:
     - libcppunit-dev
+    - npm
+    - javadoc
 
 install:
   - if [ "${TRAVIS_CPU_ARCH}" == "arm64" ]; then
